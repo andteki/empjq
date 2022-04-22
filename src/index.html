@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dolgozók</h1>
+        <nav>
+            <ul>
+                <li>                    
+                    <a href="index.html">Dolgozók</a>
+                </li>
+                <li>                    
+                    <a href="login.html">Belépés</a>
+                </li>
+            </ul>
+        </nav>
+        <button id="addButton">Hozzáad</button>
+        
+        <table id="employeeTable"></table>
+    </div>
+
+
+    <div id="addPanel">
+        <div>
+            <label for="newName">Név</label>
+            <input type="text" id="newName">
+        </div>
+        <div>
+            <label for="newCity">Település</label>
+            <input type="text" id="newCity">
+        </div>
+        <div>
+            <label for="newSalary">Fizetés</label>
+            <input type="text" id="newSalary">
+        </div>
+        <button id="newSaveButton">Mentés</button>
+        <button id="newCancelButton">Mégsem</button>
+    </div>
+
+
+    <div id="editPanel">
+        <div>
+            <label for="editedId">Id</label>
+            <input type="text" id="editedId">
+        </div>
+        <div>
+            <label for="editedName">Név</label>
+            <input type="text" id="editedName">
+        </div>
+        <div>
+            <label for="editedCity">Település</label>
+            <input type="text" id="editedCity">
+        </div>
+        <div>
+            <label for="editedSalary">Fizetés</label>
+            <input type="text" id="editedSalary">
+        </div>
+        <button id="editSaveButton">Mentés</button>
+        <button id="editCancelButton">Mégsem</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
