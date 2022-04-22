@@ -1,6 +1,5 @@
 const addPanel = document.querySelector('#addPanel');
 const delButton = document.querySelector('#delButton');
-const newSaveButton = document.querySelector('#newSaveButton');
 const editSaveButton = document.querySelector('#editSaveButton');
 const editCancelButton = document.querySelector('#editCancelButton');
 const newCancelButton = document.querySelector('#newCancelButton');
@@ -46,7 +45,7 @@ var renderEmployees = (employees) => {
 }
 
 
-newSaveButton.addEventListener('click', () => {
+$('#newSaveButton').on('click', () => {
     saveNewPanel();
 });
 
@@ -129,7 +128,7 @@ var editEmployee = (employee) => {
     $('#editedSalary').val(employee.salary);
 }
 
-editSaveButton.addEventListener('click', () => {
+$('#editSaveButton').on('click', () => {
     let employee = {     
         id: $('#editedId').val(),   
         name: $('#editedName').val(),
@@ -152,8 +151,6 @@ var updateEmployee = (employee) => {
 
     let authData = JSON.parse(authDataJson);
     let token = authData.token;
-
-
 
     $.ajax({
         type: 'put',

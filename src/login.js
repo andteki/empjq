@@ -60,7 +60,6 @@ function logout() {
         console.log(res);
         localStorage.removeItem('authData');
         alert('Kilépve');
-    });
-    
+    });    
 }
 
