@@ -1,8 +1,6 @@
-const loginButton = document.querySelector('#loginButton');
-const logoutButton = document.querySelector('#logoutButton');
 const host = 'http://localhost:8000/api/';
 
-loginButton.addEventListener('click', () => {
+$('#loginButton').on('click', event => {
     login();
 });
 
@@ -16,19 +14,27 @@ var login = () => {
     $.ajax({
         method: 'post',
         url: url,
-        data: authData
-    })
-    .done((res) => {
-        console.log(res);
-        localStorage.setItem('authData', JSON.stringify(res));
+        data: authData,
+        dataType: 'json',
+        success: (res) => {
+            let authData = {
+                name: res.name,
+                token: res.token
+            }
+            localStorage.setItem('authData', JSON.stringify(authData));
+        },
+        error: () => {
+            console.log('Hiba! A belépés sikertelen!')
+        }
     });
 }
 
-logoutButton.addEventListener('click', () => {
+
+$('#logoutButton').on('click', () => {
     logout();
 });
 
-var logout = () => {
+function logout() {
     let endpoint = 'logout';
     let url = host + endpoint;
     let authDataJson = localStorage.getItem('authData');
@@ -54,7 +60,7 @@ var logout = () => {
         console.log(res);
         localStorage.removeItem('authData');
         alert('Kilépve');
-
     });
     
 }
+

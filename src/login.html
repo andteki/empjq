@@ -4,33 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Dolgozók</h1>
-        <nav>
-            <ul>
-                <li>                    
-                    <a href="index.html">Dolgozók</a>
+        <nav class="nav m-3">
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Dolgozók</a>
                 </li>
-                <li>                    
-                    <a href="login.html">Belépés</a>
-                </li>                
+                <li class="nav-item">
+                  <a class="nav-link" href="login.html">Belépés</a>
+                </li>
             </ul>
-            <button id="logoutButton">Kilépés</button>
+            <button id="logoutButton"
+            class="btn btn-primary">Kilépés</button>
         </nav>
-        <div id="loginPanel">
-            <div>
-                <label for="user">Felhasználónév</label>
-                <input type="text" id="user">
-            </div>
-            <div>
-                <label for="pass">Jelszó</label>
-                <input type="password" id="pass">
-            </div>
-            <button id="loginButton">Belépés</button>
+
+
+        <div id="loginPanel"></div>
+                <div class="mb-3">
+                    <label for="user" class="form-label">Felhasználónév</label>
+                    <input type="text" class="form-control" id="user"
+                    value="janos">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pass" class="form-label">Jelszó</label>
+                    <input type="password" class="form-control" id="pass"
+                    value="titok">
+                </div>
+
+                <button type="button" class="btn btn-primary"
+                id="loginButton">Belépés</button>
+
         </div>
+ 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

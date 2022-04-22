@@ -5,66 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.css">
 </head>
 <body>
     <div class="container">
         <h1>Dolgozók</h1>
-        <nav>
-            <ul>
-                <li>                    
-                    <a href="index.html">Dolgozók</a>
+        <nav class="m-3">
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Dolgozók</a>
                 </li>
-                <li>                    
-                    <a href="login.html">Belépés</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="login.html">Belépés</a>
                 </li>
-            </ul>
+            </ul>            
+
         </nav>
-        <button id="addButton">Hozzáad</button>
         
-        <table id="employeeTable"></table>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" 
+        data-bs-toggle="modal" data-bs-target="#addModal">
+            Hozzáadás
+        </button>
+
+
+        <table id="employeeTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Név</th>
+                    <th>Település</th>
+                    <th>Fizetés</th>
+                </tr>                
+            </thead>
+            <tbody id="employeeTableBody">
+
+            </tbody>
+        </table>
     </div>
 
 
-    <div id="addPanel">
-        <div>
-            <label for="newName">Név</label>
-            <input type="text" id="newName">
-        </div>
-        <div>
-            <label for="newCity">Település</label>
-            <input type="text" id="newCity">
-        </div>
-        <div>
-            <label for="newSalary">Fizetés</label>
-            <input type="text" id="newSalary">
-        </div>
-        <button id="newSaveButton">Mentés</button>
-        <button id="newCancelButton">Mégsem</button>
-    </div>
 
 
-    <div id="editPanel">
-        <div>
-            <label for="editedId">Id</label>
-            <input type="text" id="editedId">
+
+  
+  <!-- add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Hozzáadás</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div>
-            <label for="editedName">Név</label>
-            <input type="text" id="editedName">
+        <div class="modal-body">
+
+            <div id="addPanel">
+                <div>
+                    <label for="newName">Név</label>
+                    <input type="text" id="newName">
+                </div>
+                <div>
+                    <label for="newCity">Település</label>
+                    <input type="text" id="newCity">
+                </div>
+                <div>
+                    <label for="newSalary">Fizetés</label>
+                    <input type="text" id="newSalary">
+                </div>
+            </div>
+
+
         </div>
-        <div>
-            <label for="editedCity">Település</label>
-            <input type="text" id="editedCity">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" 
+          data-bs-dismiss="modal">Bezárás</button>
+          <button type="button" class="btn btn-primary"
+          id="newSaveButton"
+          data-bs-dismiss="modal">Mentés</button>
         </div>
-        <div>
-            <label for="editedSalary">Fizetés</label>
-            <input type="text" id="editedSalary">
-        </div>
-        <button id="editSaveButton">Mentés</button>
-        <button id="editCancelButton">Mégsem</button>
+      </div>
     </div>
+  </div>    
+
+
+
+
+  <!-- edit Modal -->
+  <div class="modal fade" id="editModal" 
+  tabindex="-1" aria-labelledby="exampleModalLabel" 
+  aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dolgozó szerkesztése</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div id="editPanel">
+                <div>
+                    <label for="editedId">Id</label>
+                    <input type="text" id="editedId">
+                </div>
+                <div>
+                    <label for="editedName">Név</label>
+                    <input type="text" id="editedName">
+                </div>
+                <div>
+                    <label for="editedCity">Település</label>
+                    <input type="text" id="editedCity">
+                </div>
+                <div>
+                    <label for="editedSalary">Fizetés</label>
+                    <input type="text" id="editedSalary">
+                </div>
+
+            </div>
+        
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"
+          data-bs-dismiss="modal"
+          id="editSaveButton">Mentés</button>
+        </div>
+      </div>
+    </div>
+  </div>            
+
+
+
+
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="index.js"></script>
     
 </body>

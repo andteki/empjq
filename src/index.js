@@ -1,4 +1,3 @@
-const addButton = document.querySelector('#addButton');
 const addPanel = document.querySelector('#addPanel');
 const delButton = document.querySelector('#delButton');
 const newSaveButton = document.querySelector('#newSaveButton');
@@ -21,7 +20,7 @@ var getEmployees = () => {
 }
 
 var renderEmployees = (employees) => {
-    $('#employeeTable').text('');
+    $('#employeeTableBody').text('');
     $.each(employees, (index, value) => {
         let tr = $('<tr></tr>');
         $('<td></td>').text(value.id).appendTo(tr);
@@ -30,24 +29,22 @@ var renderEmployees = (employees) => {
         $('<td></td>').text(value.salary).appendTo(tr);
         
         let tdDel =  $('<td></td>').appendTo(tr);
-        let delButton = $('<button>Törlés</button>').appendTo(tdDel);
+        let delButton = $('<button><i class="bi bi-trash"></i></button>').appendTo(tdDel);
         delButton.on('click', () => delEmployee(value.id));
+        delButton.attr('class', 'btn btn-warning')
 
         let tdEdit = $('<td></td>').appendTo(tr);
-        let updateButton = $('<button>Szerkesztés</button>').appendTo(tdEdit);
+        let updateButton = $('<button><i class="bi bi-pencil"></i></button>').appendTo(tdEdit);
         updateButton.on('click', () => editEmployee(value));
+        updateButton.attr('type', 'button');
+        updateButton.attr('class', 'btn btn-info');
+        updateButton.attr('data-bs-toggle', 'modal');
+        updateButton.attr('data-bs-target', '#editModal');
 
-        $('#employeeTable').append(tr);
+        $('#employeeTableBody').append(tr);
     });
 }
 
-addButton.addEventListener('click', () => {
-    showAddPanel();
-});
-
-var showAddPanel = () => {    
-    $('#addPanel').fadeIn(400);
-};
 
 newSaveButton.addEventListener('click', () => {
     saveNewPanel();
@@ -63,7 +60,6 @@ var saveNewPanel = () => {
     $('#newCity').val('');
     $('#newSalary').val('');
     addEmployee(employee);
-    $('#addPanel').fadeOut(400);
 };
 
 var addEmployee = (employee) => {
@@ -173,13 +169,5 @@ var updateEmployee = (employee) => {
         getEmployees();
     });
 }
-
-editCancelButton.addEventListener('click', () => {
-    $('#editPanel').fadeOut(400);
-});
-
-newCancelButton.addEventListener('click', () => {
-    $('#addPanel').fadeOut(400);
-});
 
 getEmployees();
