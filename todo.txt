@@ -1,2 +1,1 @@
-TODO: A hozzáadás beviteli felülethez Bootstrap
-TODO: A szerkesztés beviteli felülethez Bootstrap
+
