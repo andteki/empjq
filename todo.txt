@@ -1,1 +1,2 @@
 TODO: Build feladat írása
+TODO: jQuery átállítása CDN-ről helyi tárolóra.
